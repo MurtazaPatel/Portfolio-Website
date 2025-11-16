@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Murtaza Patel | Academic & Professional Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #070b19;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.3);
+      --accent-strong: #7c3aed;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --glass: rgba(15, 23, 42, 0.75);
+      --border-glass: rgba(148, 163, 184, 0.25);
+      --card-radius: 20px;
+      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top, #101827 0, #020617 40%, #000 100%);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--accent), var(--accent-strong));
+      border-radius: 999px;
+    }
+
+    .bg-orbit {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 999px;
+      filter: blur(120px);
+      opacity: 0.45;
+      mix-blend-mode: screen;
+      background: radial-gradient(circle, var(--accent-strong), transparent 60%);
+      animation: floatBlob 26s ease-in-out infinite alternate;
+    }
+    .blob:nth-child(1) {
+      top: -80px;
+      left: -60px;
+    }
+    .blob:nth-child(2) {
+      bottom: -160px;
+      right: -60px;
+      animation-duration: 32s;
+    }
+    .blob:nth-child(3) {
+      top: 40%;
+      left: 60%;
+      animation-duration: 40s;
+    }
+    @keyframes floatBlob {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(40px,-30px,0) scale(1.1); }
+      100% { transform: translate3d(-30px,40px,0) scale(0.95); }
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.7), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 16px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at 0% 0%, var(--accent-strong), transparent),
+                  radial-gradient(circle at 100% 100%, #22c55e, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #e5e7eb;
+      box-shadow: 0 0 20px rgba(79, 70, 229, 0.7);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-title span:first-child {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .nav-title span:last-child {
+      font-size: 15px;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-links a.active {
+      color: #e5e7eb;
+      border-color: rgba(79, 70, 229, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.35), transparent 70%);
+      box-shadow: 0 0 16px rgba(79, 70, 229, 0.7);
+    }
+
+    .nav-cta {
+      font-size: 11px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(79, 70, 229, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.6), rgba(15, 23, 42, 0.95));
+      color: #e5e7eb;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 22px rgba(79, 70, 229, 0.8);
+    }
+
+    .nav-cta span {
+      font-size: 13px;
+    }
+
+    main {
+      margin-top: 12px;
+    }
+
+    section {
+      margin: 32px 0;
+      position: relative;
+    }
+
+    .section-inner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-glass);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 22px;
+      backdrop-filter: blur(22px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.16), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.12), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-heading-main {
+      font-size: 20px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+      text-align: right;
+    }
+
+    .section-body {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 2fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .cover-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .name-block {
+      margin-top: 4px;
+    }
+
+    .name-block h1 {
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-size: clamp(28px, 4vw, 34px);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .name-highlight {
+      background: linear-gradient(90deg, #e5e7eb, #a5b4fc, #f9a8d4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .name-block h2 {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .tagline {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #e5e7eb;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .tagline span {
+      color: #c4b5fd;
+      font-weight: 500;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .meta-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      color: #e5e7eb;
+      line-height: 1.5;
+    }
+
+    .meta-small {
+      font-size: 12px;
+    }
+
+    .contact-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .contact-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-pill a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    .photo-card {
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.35), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.25), transparent 60%),
+                  rgba(15, 23, 42, 0.96);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .photo-frame {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      min-height: 220px;
+      background: radial-gradient(circle at 20% 0, rgba(248, 250, 252, 0.25), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.35), transparent 55%),
+                  linear-gradient(135deg, #020617, #020617);
+    }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .photo-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      border: 2px solid rgba(248, 250, 252, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 600;
+      color: #e5e7eb;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.85), transparent 60%),
+                  radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.7), transparent 55%);
+      box-shadow: 0 0 40px rgba(129, 140, 248, 0.9);
+    }
+
+    .photo-note {
+      font-size: 12px;
+      color: rgba(226, 232, 240, 0.8);
+      max-width: 220px;
+      line-height: 1.5;
+    }
+
+    .photo-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #c7d2fe;
+    }
+
+    .submission-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(209, 213, 219, 0.85);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2.4fr);
+      gap: 18px;
+    }
+
+    .toc-intro {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .toc-item {
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.96);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+    }
+
+    .toc-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.9);
+      border-color: rgba(129, 140, 248, 0.9);
+    }
+
+    .toc-index {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 2px;
+    }
+
+    .toc-title {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .toc-desc {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 2.2fr);
+      gap: 22px;
+    }
+
+    .section-left {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section-left p + p {
+      margin-top: 10px;
+    }
+
+    .pill-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill-sm {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: #cbd5f5;
+    }
+
+    .section-right {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      padding: 12px 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.96);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.18), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 6px;
+    }
+
+    .card ul {
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card ul li + li {
+      margin-top: 4px;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2.2fr);
+      gap: 20px;
+    }
+
+    .resume-column h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .resume-item {
+      margin-bottom: 10px;
+    }
+
+    .resume-item-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .resume-item-sub {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .resume-meta-line {
+      font-size: 12px;
+      color: #a5b4fc;
+      margin-top: 2px;
+    }
+
+    .bullet-list {
+      margin-top: 6px;
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.96);
+      color: #cbd5f5;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .project-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .chip-xs {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #c7d2fe;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .project-visual {
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.35), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      font-size: 12px;
+      color: #e5e7eb;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-visual span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2.3fr);
+      gap: 20px;
+    }
+
+    .skill-chip {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.8);
+      background: rgba(15, 23, 42, 0.96);
+      color: #c7d2fe;
+    }
+
+    .skill-card {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 10px 11px 12px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 13px;
+    }
+
+    .skill-card h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .skill-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .artefact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a5b4fc;
+      margin-bottom: 4px;
+    }
+
+    .artefact-box {
+      font-size: 12px;
+      border-radius: 12px;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      padding: 8px 10px;
+      color: #e5e7eb;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .timeline-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #a5b4fc, #4f46e5);
+      position: absolute;
+      left: 0;
+      top: 4px;
+      box-shadow: 0 0 10px rgba(129, 140, 248, 0.9);
+    }
+
+    .timeline-item h4 {
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+
+    .timeline-meta {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin: 2px 0 4px;
+    }
+
+    .timeline-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .case-card {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 10px 11px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 13px;
+    }
+
+    .case-card h4 {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 3px;
+    }
+
+    .case-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a5b4fc;
+      margin-bottom: 4px;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .roadmap-card {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 10px 11px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 13px;
+    }
+
+    .roadmap-chip {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+      margin-bottom: 3px;
+    }
+
+    .swot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .swot-card {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 10px 11px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 13px;
+    }
+
+    .swot-card h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+
+    .swot-card ul {
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .testimonial-card {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 12px 12px 14px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 13px;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 22px;
+      position: absolute;
+      top: 8px;
+      right: 14px;
+      color: rgba(129, 140, 248, 0.7);
+    }
+
+    .testimonial-body {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .testimonial-meta {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .testimonial-name {
+      font-size: 13px;
+      color: #e5e7eb;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding: 18px 0 8px;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #9ca3af;
+      text-decoration: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .cover-grid,
+      .toc-grid,
+      .two-col,
+      .resume-grid,
+      .skills-grid,
+      .project-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section-subtitle {
+        text-align: left;
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-inner {
+        padding: 18px 14px;
+      }
+      .page {
+        padding: 16px 12px 60px;
+      }
+      .nav {
+        padding-inline: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbit" aria-hidden="true">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
+
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-title">
+          <span>Portfolio</span>
+          <span>Murtaza Patel · Web3 & Full-Stack</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#cover" class="nav-link active">Cover</a>
+        <a href="#toc" class="nav-link">Contents</a>
+        <a href="#intro" class="nav-link">Philosophy</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+        <a href="#ethics" class="nav-link">Ethics</a>
+        <a href="#future" class="nav-link">Future</a>
+        <a href="#conclusion" class="nav-link">Conclusion</a>
+        <a href="#testimonial" class="nav-link">Testimonial</a>
+      </div>
+      <a href="#cover" class="nav-cta">
+        Portfolio · <span>2025</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="page">
+    <main>
+      <!-- Cover Page -->
+      <section id="cover" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Cover Page</span>
+              </div>
+              <div class="section-heading-main">
+                Academic & Professional Portfolio
+              </div>
+            </div>
+            <div class="section-subtitle">
+              A clean, interactive portfolio presenting my academic journey, skills, and projects in a structured way for evaluation.
+            </div>
+          </div>
+
+          <div class="section-body cover-grid">
+            <div class="cover-main">
+              <div>
+                <div class="chip-row">
+                  <!-- <div class="chip">Digital Portfolio</div>
+                  <div class="chip">Scroll Story</div>
+                  <div class="chip">Glassmorphism UI</div> -->
+                </div>
+
+                <div class="name-block">
+                  <h1><span class="name-highlight">Murtaza&nbsp;Patel</span></h1>
+                  <h2>Full-Stack & Web3 Developer · B.Tech Computer Engineering</h2>
+                </div>
+
+                <p class="tagline">
+                  <span>Academic philosophy:</span>
+                  Learn by building real systems, reflect on each iteration, and use technology to make complex things understandable and useful.
+                </p>
+
+                <div class="meta-row">
+                  <div class="meta-item">
+                    <div class="meta-label">Academic Program</div>
+                    <div class="meta-value meta-small">
+                      Bachelor of Technology in Computer Engineering<br/>
+                      Pandit Deendayal Energy University (PDEU)
+                    </div>
+                  </div>
+                  <div class="meta-item">
+                    <div class="meta-label">Location</div>
+                    <div class="meta-value meta-small">
+                      Rajkot · Gandhinagar, Gujarat, India
+                    </div>
+                  </div>
+                  <div class="meta-item">
+                    <div class="meta-label">Submission</div>
+                    <div class="meta-value meta-small">
+                      Academic & Professional Portfolio · 2025
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-row">
+                  <div class="contact-pill">
+                    📧 <a href="mailto:murtazapatel05@gmail.com">murtazapatel05@gmail.com</a>
+                  </div>
+                  <div class="contact-pill">
+                    🔗 <a href="https://www.linkedin.com/in/murtaza-patel-3a0389289/" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                  <div class="contact-pill">
+                    📞 <span>+91&nbsp;70169&nbsp;83249</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="photo-card">
+              <div class="photo-frame">
+                <!-- Replace placeholder with your actual photo <img> -->
+                <img src="professional_square.png" alt="Murtaza Patel" class="profile-photo">
+              </div>
+              <div class="submission-meta">
+                <span>Full-Stack · MERN · Web3</span>
+                <span>Portfolio v1.1 · Interactive</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Table of Contents -->
+      <section id="toc" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Table of Contents</span>
+              </div>
+              <div class="section-heading-main">
+                Section Map & Navigation
+              </div>
+            </div>
+            <div class="section-subtitle">
+              All required sections are organized and linked, so evaluators can jump directly to the part they need.
+            </div>
+          </div>
+
+          <div class="section-body toc-grid">
+            <div class="toc-intro">
+              This portfolio follows the required academic format:<br/>
+              Cover Page, Learning Philosophy, Resume, Interdisciplinary Projects, Advanced Skills, Collaborative & Leadership experiences, Ethics, Future Aspirations, Conclusion & Self-Assessment, and Testimonial.
+            </div>
+            <div class="toc-list">
+              <div class="toc-item" data-target="#cover">
+                <div>
+                  <div class="toc-index">01</div>
+                  <div class="toc-title">Cover Page</div>
+                  <div class="toc-desc">Identity, program, institution and academic tagline.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#intro">
+                <div>
+                  <div class="toc-index">02</div>
+                  <div class="toc-title">Introduction & Learning Philosophy</div>
+                  <div class="toc-desc">My approach to learning, thinking and building.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#resume">
+                <div>
+                  <div class="toc-index">03</div>
+                  <div class="toc-title">Resume / CV</div>
+                  <div class="toc-desc">Education, experience, skills and activities.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#projects">
+                <div>
+                  <div class="toc-index">04</div>
+                  <div class="toc-title">Interdisciplinary Projects & Research</div>
+                  <div class="toc-desc">Projects crossing Web, Web3, finance & UX.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#skills">
+                <div>
+                  <div class="toc-index">05</div>
+                  <div class="toc-title">Advanced Skill Development</div>
+                  <div class="toc-desc">Technical and soft skills with artefacts.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#leadership">
+                <div>
+                  <div class="toc-index">06</div>
+                  <div class="toc-title">Collaborative & Leadership Experiences</div>
+                  <div class="toc-desc">Team roles and contributions.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#ethics">
+                <div>
+                  <div class="toc-index">07</div>
+                  <div class="toc-title">Global Awareness & Ethical Considerations</div>
+                  <div class="toc-desc">How I think about impact & responsibility.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#future">
+                <div>
+                  <div class="toc-index">08</div>
+                  <div class="toc-title">Future Aspirations & Professional Development</div>
+                  <div class="toc-desc">Goals and long-term direction.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#conclusion">
+                <div>
+                  <div class="toc-index">09</div>
+                  <div class="toc-title">Conclusion & Self-Assessment</div>
+                  <div class="toc-desc">Reflection and SWOT summary.</div>
+                </div>
+              </div>
+              <div class="toc-item" data-target="#testimonial">
+                <div>
+                  <div class="toc-index">10</div>
+                  <div class="toc-title">Testimonial</div>
+                  <div class="toc-desc">Space for mentors or professors to recommend.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction & Learning Philosophy -->
+      <section id="intro" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Introduction & Learning Philosophy</span>
+              </div>
+              <div class="section-heading-main">
+                Learning by Building & Reflecting
+              </div>
+            </div>
+            <div class="section-subtitle">
+              A brief view of how I learn, what I value, and how that shows up in my projects and work.
+            </div>
+          </div>
+
+          <div class="section-body two-col">
+            <div class="section-left">
+              <p>
+                I treat learning as a loop: <strong>understand → build → break → fix → document</strong>.
+                Concepts become real only when they survive real constraints like time limits, broken APIs, and unclear requirements.
+              </p>
+              <p>
+                My interests sit where theory meets application: algorithms in real systems, databases backing actual products, and Web3 used for real-world use cases like lending or property.
+              </p>
+              <p>
+                Core values:
+              </p>
+              <ul class="bullet-list">
+                <li><strong>Clarity:</strong> keeping architectures and code readable, not just clever.</li>
+                <li><strong>Ownership:</strong> taking responsibility from idea to working prototype.</li>
+                <li><strong>Impact:</strong> choosing projects that solve something concrete.</li>
+              </ul>
+              <div class="pill-row">
+                <span class="pill-sm">Project-based Learning</span>
+                <span class="pill-sm">Systems Thinking</span>
+                <span class="pill-sm">Human-Centered Tech</span>
+              </div>
+            </div>
+
+            <div class="section-right">
+              <div class="card">
+                <div class="card-meta">How I approach a new concept</div>
+                <h3>From Theory to Working Prototype</h3>
+                <ul>
+                  <li>Skim the big picture and core idea.</li>
+                  <li>Relate it to a real use case (e.g., lending, real estate, productivity).</li>
+                  <li>Build a small demo or tool using that concept.</li>
+                  <li>Note down what failed, what was confusing, and how I fixed it.</li>
+                </ul>
+              </div>
+              <div class="card">
+                <div class="card-meta">What this portfolio shows</div>
+                <h3>Evidence of my Learning Style</h3>
+                <ul>
+                  <li>Projects where classroom ideas are turned into actual applications.</li>
+                  <li>Skills that are used in context, not just listed as buzzwords.</li>
+                  <li>Reflections that show how each experience changed the way I think.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume / CV -->
+      <section id="resume" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Resume / CV</span>
+              </div>
+              <div class="section-heading-main">
+                Snapshot of Education, Experience & Skills
+              </div>
+            </div>
+            <div class="section-subtitle">
+              A focused view of my academic background, key experiences, and capabilities.
+            </div>
+          </div>
+
+          <div class="section-body resume-grid">
+            <div class="resume-column">
+              <h3>Education</h3>
+              <div class="resume-item">
+                <div class="resume-item-title">Bachelor of Technology in Computer Engineering</div>
+                <div class="resume-item-sub">
+                  Pandit Deendayal Energy University · Gandhinagar, Gujarat · 2023–2027
+                </div>
+                <div class="resume-meta-line">
+                  CGPA: <strong>9.25 / 10</strong>
+                </div>
+                <ul class="bullet-list">
+                  <li>Key subjects: Data Structures, Algorithms, DBMS, Web Development, OOP.</li>
+                  <li>Focus: Full-stack applications and Web3 fundamentals.</li>
+                </ul>
+              </div>
+
+              <h3>Areas of Interest</h3>
+              <ul class="bullet-list">
+                <li>Decentralized Applications (dApps) & Smart Contracts.</li>
+                <li>Full-stack Web apps (MERN / Next.js).</li>
+                <li>Real estate & finance-related technology.</li>
+              </ul>
+
+              <h3>Hobbies</h3>
+              <ul class="bullet-list">
+                <li>Exploring startup stories and business models.</li>
+                <li>Learning about cars and systems behind them.</li>
+                <li>Building side projects and tools for productivity.</li>
+              </ul>
+            </div>
+
+            <div class="resume-column">
+              <h3>Experience</h3>
+              <div class="resume-item">
+                <div class="resume-item-title">Web3 Micro-Lending Project · NITS Hacks /.0</div>
+                <div class="resume-meta-line">
+                  Smart contract & lending flow implementation
+                </div>
+                <ul class="bullet-list">
+                  <li>Built smart contracts to support micro-lending workflows.</li>
+                  <li>Worked with a small team under short hackathon deadlines.</li>
+                  <li>Focused on safe, traceable loan lifecycle logic.</li>
+                </ul>
+              </div>
+
+              <div class="resume-item">
+                <div class="resume-item-title">Co-Founder & Pitch Lead · Collabr8</div>
+                <div class="resume-meta-line">
+                  Techstars Startup Weekend
+                </div>
+                <ul class="bullet-list">
+                  <li>Co-created a concept to connect people to growth opportunities.</li>
+                  <li>Led ideation and co-led product story/pitch.</li>
+                  <li>Interacted with mentors and early users to refine the idea.</li>
+                </ul>
+              </div>
+
+              <h3>Technical Skills</h3>
+              <div class="resume-item">
+                <div class="tag-row">
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Java</span>
+                  <span class="tag">C++</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Express.js</span>
+                  <span class="tag">React.js</span>
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Tailwind CSS</span>
+                  <span class="tag">Solidity</span>
+                  <span class="tag">Foundry</span>
+                  <span class="tag">Ethers.js</span>
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">Git & GitHub</span>
+                  <span class="tag">Docker</span>
+                </div>
+              </div>
+
+              <h3>Soft Skills</h3>
+              <div class="resume-item">
+                <div class="tag-row">
+                  <span class="tag">Problem-Solving</span>
+                  <span class="tag">Teamwork</span>
+                  <span class="tag">Communication</span>
+                  <span class="tag">Time Management</span>
+                  <span class="tag">Adaptability</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interdisciplinary Projects & Research -->
+      <section id="projects" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Interdisciplinary Projects & Research</span>
+              </div>
+              <div class="section-heading-main">
+                Projects Connecting Multiple Domains
+              </div>
+            </div>
+            <div class="section-subtitle">
+              A quick look at projects where I combined Web, Web3, finance, productivity and design thinking.
+            </div>
+          </div>
+
+          <div class="section-body">
+            <!-- Project 1 -->
+            <div class="card project-card">
+              <div>
+                <div class="project-meta-row">
+                  <span class="chip-xs">Web3 · FinTech</span>
+                  <span class="chip-xs">Hackathon</span>
+                </div>
+                <h3>Micro-Lending Platform for Rural Districts</h3>
+                <p class="card-sub">
+                  A smart contract-based micro-lending system designed to bring transparency and structure to rural lending.
+                </p>
+                <ul>
+                  <li><strong>Objective:</strong> Model simple, fair loan flows using smart contracts.</li>
+                  <li><strong>Method:</strong> Designed on-chain states for loan request, approval and repayment.</li>
+                  <li><strong>Outcome:</strong> Working prototype demonstrating transparent lending records.</li>
+                  <li><strong>Challenge:</strong> Balancing detailed tracking with gas cost and simplicity.</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <span>Architecture snapshot</span>
+                <div>
+                  UI → Web3 Provider → Solidity Smart Contracts → Test Network
+                </div>
+                <div>
+                  Key artefacts: contract diagrams, short demo, and flow chart of loan lifecycle.
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card project-card">
+              <div>
+                <div class="project-meta-row">
+                  <span class="chip-xs">MERN</span>
+                  <span class="chip-xs">Productivity</span>
+                </div>
+                <h3>Second Brain · Personal Knowledge Manager</h3>
+                <p class="card-sub">
+                  A MERN application for capturing, tagging and searching articles, videos and notes.
+                </p>
+                <ul>
+                  <li><strong>Objective:</strong> Create one place to store and find learning material.</li>
+                  <li><strong>Method:</strong> Used MongoDB, Express, React and Node for CRUD and auth.</li>
+                  <li><strong>Outcome:</strong> Working app with search and tag-based organization.</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <span>Feature overview</span>
+                <div>Dashboard, quick search, tag filters, and content detail pages.</div>
+                <div>Artefacts: API routes, schema design, and UI components.</div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card project-card">
+              <div>
+                <div class="project-meta-row">
+                  <span class="chip-xs">Next.js</span>
+                  <span class="chip-xs">Real Estate</span>
+                </div>
+                <h3>Lyvyn · Real Estate Listings Website</h3>
+                <p class="card-sub">
+                  A clean, responsive property listing interface built in Next.js with Tailwind.
+                </p>
+                <ul>
+                  <li><strong>Objective:</strong> Build a smooth property browsing UI with filters.</li>
+                  <li><strong>Outcome:</strong> Fast, SEO-friendly layout ready to extend into Web3 tokenization later.</li>
+                </ul>
+              </div>
+              <div class="project-visual">
+                <span>Future direction</span>
+                <div>Integrate token-based fractional ownership and rental cash-flow dashboards.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Skill Development & Mastery -->
+      <section id="skills" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Advanced Skill Development & Mastery</span>
+              </div>
+              <div class="section-heading-main">
+                Skills with Real Usage
+              </div>
+            </div>
+            <div class="section-subtitle">
+              Not just a list of tools, but where I’ve actually applied them.
+            </div>
+          </div>
+
+          <div class="section-body skills-grid">
+            <div class="section-left">
+              <p>
+                I focus on skills that directly support building and shipping products: Web3, full-stack engineering and working smoothly with teams.
+              </p>
+              <div class="pill-row">
+                <span class="skill-chip">Solidity & Web3</span>
+                <span class="skill-chip">MERN / Next.js</span>
+                <span class="skill-chip">Problem-Solving</span>
+                <span class="skill-chip">Team Collaboration</span>
+              </div>
+            </div>
+
+            <div class="section-right">
+              <div class="skill-card">
+                <h4>Web3 & Smart Contracts</h4>
+                <p>Used Solidity and Foundry to design basic lending contracts and test flows in the hackathon project.</p>
+                <div class="artefact-label">Artefacts</div>
+                <div class="artefact-box">
+                  <ul class="bullet-list">
+                    <li>Loan lifecycle contracts with clear states.</li>
+                    <li>Basic test scripts to validate normal cases.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <h4>Full-Stack Development</h4>
+                <p>Built the Second Brain app and Lyvyn property UI using MERN and Next.js.</p>
+                <div class="artefact-label">Artefacts</div>
+                <div class="artefact-box">
+                  <ul class="bullet-list">
+                    <li>REST APIs, auth and database schemas.</li>
+                    <li>Reusable React / Next components.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <h4>Soft Skills</h4>
+                <p>Improved communication and leadership by pitching ideas and working in time-bound events.</p>
+                <div class="artefact-label">Artefacts</div>
+                <div class="artefact-box">
+                  <ul class="bullet-list">
+                    <li>Startup Weekend pitch material.</li>
+                    <li>Team task breakdown and coordination.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Collaborative & Leadership Experiences -->
+      <section id="leadership" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Collaborative & Leadership Experiences</span>
+              </div>
+              <div class="section-heading-main">
+                Working With and Leading Teams
+              </div>
+            </div>
+            <div class="section-subtitle">
+              Key moments where I had to coordinate, decide and deliver with others.
+            </div>
+          </div>
+
+          <div class="section-body two-col">
+            <div class="section-left">
+              <p>
+                Hackathons and startup events taught me to move fast without losing clarity.
+                I’ve learned to share ownership, communicate openly, and base decisions on impact rather than ego.
+              </p>
+            </div>
+
+            <div class="section-right timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Co-Founder & Pitch Lead · Collabr8</h4>
+                <div class="timeline-meta">Techstars Startup Weekend</div>
+                <div class="timeline-body">
+                  <ul class="bullet-list">
+                    <li>Helped define the product and user story.</li>
+                    <li>Co-led the final pitch to mentors and judges.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Developer · Micro-Lending Team</h4>
+                <div class="timeline-meta">NITS Hacks /.0</div>
+                <div class="timeline-body">
+                  <ul class="bullet-list">
+                    <li>Owned the flow between contracts and frontend.</li>
+                    <li>Worked with teammates to debug and stabilize the demo before presentation.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Peer Collaboration</h4>
+                <div class="timeline-meta">University Projects</div>
+                <div class="timeline-body">
+                  <ul class="bullet-list">
+                    <li>Explained concepts like DSA and DBMS to peers during group work.</li>
+                    <li>Encouraged a culture of “debug together” instead of blame.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Awareness & Ethical Considerations -->
+      <section id="ethics" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Global Awareness & Ethical Considerations</span>
+              </div>
+              <div class="section-heading-main">
+                Thinking Beyond Just Code
+              </div>
+            </div>
+            <div class="section-subtitle">
+              Some of the questions I ask about impact when building systems.
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div class="two-col">
+              <div class="section-left">
+                <p>
+                  Working on a micro-lending idea made it clear that financial systems can help or harm, depending on how they are designed.
+                  The same line of code can be helpful in one context and unfair in another.
+                </p>
+              </div>
+              <div class="section-right case-grid">
+                <div class="case-card">
+                  <div class="case-label">Transparency vs. Privacy</div>
+                  <h4>On-chain Data</h4>
+                  <p>
+                    Recording loan activities on a public chain gives transparency, but personal details should not be fully exposed.
+                  </p>
+                </div>
+                <div class="case-card">
+                  <div class="case-label">Fairness</div>
+                  <h4>Access to Credit</h4>
+                  <p>
+                    Any scoring logic needs to be checked so it doesn’t unfairly block certain groups or locations.
+                  </p>
+                </div>
+                <div class="case-card">
+                  <div class="case-label">Responsibility</div>
+                  <h4>Role as a Developer</h4>
+                  <p>
+                    I try to ask: “Who could be harmed if this system is misused?” and “Is there a safer way to design it?”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Future Aspirations & Professional Development -->
+      <section id="future" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Future Aspirations & Professional Development</span>
+              </div>
+              <div class="section-heading-main">
+                Where I Want to Go Next
+              </div>
+            </div>
+            <div class="section-subtitle">
+              A brief roadmap, not a fixed script.
+            </div>
+          </div>
+
+          <div class="section-body two-col">
+            <div class="section-left">
+              <p>
+                I want to work at the intersection of Web3, full-stack systems and real-world domains like real estate and finance.
+                Long term, I aim to build products that make access to assets and information more fair and transparent.
+              </p>
+            </div>
+            <div class="section-right roadmap">
+              <div class="roadmap-card">
+                <div class="roadmap-chip">Short Term</div>
+                <ul class="bullet-list">
+                  <li>Get stronger in smart contract security and testing.</li>
+                  <li>Ship more full-stack side projects end to end.</li>
+                </ul>
+              </div>
+              <div class="roadmap-card">
+                <div class="roadmap-chip">Medium Term</div>
+                <ul class="bullet-list">
+                  <li>Take part in more hackathons and open-source work.</li>
+                  <li>Contribute to products that have real users.</li>
+                </ul>
+              </div>
+              <div class="roadmap-card">
+                <div class="roadmap-chip">Long Term</div>
+                <ul class="bullet-list">
+                  <li>Build and scale my own product/startup in the Web3 + real estate space.</li>
+                  <li>Keep learning and teaching others along the way.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion & Self-Assessment -->
+      <section id="conclusion" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Conclusion & Self-Assessment</span>
+              </div>
+              <div class="section-heading-main">
+                Quick Reflection & SWOT
+              </div>
+            </div>
+            <div class="section-subtitle">
+              Where I see my strengths, gaps, and opportunities.
+            </div>
+          </div>
+
+          <div class="section-body two-col">
+            <div class="section-left">
+              <p>
+                This portfolio reflects a phase where I went from “learning concepts” to “using them to build things.”
+                I am stronger in full-stack and Web3 basics now, but I still have a lot to learn in large-scale system design, advanced security, and product strategy.
+              </p>
+            </div>
+            <div class="section-right">
+              <div class="swot-grid">
+                <div class="swot-card">
+                  <h4>Strengths</h4>
+                  <ul>
+                    <li>Curious and willing to dig deeper.</li>
+                    <li>Comfortable learning by building.</li>
+                    <li>Can communicate ideas clearly.</li>
+                  </ul>
+                </div>
+                <div class="swot-card">
+                  <h4>Weaknesses</h4>
+                  <ul>
+                    <li>Limited real production experience so far.</li>
+                    <li>Need more practice with security reviews.</li>
+                  </ul>
+                </div>
+                <div class="swot-card">
+                  <h4>Opportunities</h4>
+                  <ul>
+                    <li>Growing Web3 and startup ecosystems.</li>
+                    <li>Chances to join hackathons and communities.</li>
+                  </ul>
+                </div>
+                <div class="swot-card">
+                  <h4>Threats</h4>
+                  <ul>
+                    <li>Fast-changing tech landscape.</li>
+                    <li>Risk of distraction without focus.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial -->
+      <section id="testimonial" class="reveal">
+        <div class="section-inner">
+          <div class="section-header">
+            <div>
+              <div class="section-title">
+                <span>Testimonial</span>
+              </div>
+              <div class="section-heading-main">
+                External Perspective 
+              </div>
+            </div>
+            <div class="section-subtitle">
+              
+            </div>
+          </div>
+
+          <div class="section-body testimonial-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">“</div>
+              <div class="testimonial-body">
+                Murtaza demonstrates ownership and clarity in his work. He is thoughtful about the systems he builds and willing to put in the effort to get things right.
+              </div>
+              <div class="testimonial-name">Professor Feedback</div>
+              <div class="testimonial-meta">PDEU · Computer Engineering</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote">“</div>
+              <div class="testimonial-body">
+                He works well in fast-paced team environments and can translate technical work into simple explanations for others.
+              </div>
+              <div class="testimonial-name">Team Member</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Built with HTML, CSS & JavaScript <br/>
+    </footer>
+  </div>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16
+      }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                'active',
+                link.getAttribute('href') === '#' + id
+              );
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.35
+      }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    document.querySelectorAll('.toc-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const target = item.getAttribute('data-target');
+        if (target) {
+          document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
